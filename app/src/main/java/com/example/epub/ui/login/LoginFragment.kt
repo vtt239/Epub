@@ -1,19 +1,20 @@
 package com.example.epub.ui.login
 
 import android.os.Bundle
+import android.text.InputType
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
-import com.example.epub.databinding.FragmentLoginBinding
 import androidx.navigation.fragment.findNavController
 import com.example.epub.R
 import com.example.epub.api.ApiClient
 import com.example.epub.api.ErrorResponse
 import com.example.epub.api.LoginRequest
 import com.example.epub.api.LoginResponse
+import com.example.epub.databinding.FragmentLoginBinding
 import com.google.gson.Gson
 import retrofit2.Call
 import retrofit2.Callback
@@ -35,6 +36,7 @@ class LoginFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        var isPasswordVisible = false
 
         binding.btnLogin.setOnClickListener {
             val phone = binding.etPhone.text.toString()
@@ -54,6 +56,17 @@ class LoginFragment : Fragment() {
         binding.register.setOnClickListener {
             Log.d("OnClick register", "register: ")
             findNavController().navigate(R.id.navigation_register)
+        }
+
+        binding.btnShowPass.setOnClickListener {
+            isPasswordVisible = !isPasswordVisible
+            if (isPasswordVisible) {
+                binding.etPassword.inputType = InputType.TYPE_CLASS_TEXT or InputType.TYPE_TEXT_VARIATION_VISIBLE_PASSWORD
+            } else {
+                binding.etPassword.inputType = InputType.TYPE_CLASS_TEXT or InputType.TYPE_TEXT_VARIATION_PASSWORD
+            }
+            // Đặt con trỏ (cursor) về cuối của văn bản
+            binding.etPassword.setSelection(binding.etPassword.text.length)
         }
     }
 

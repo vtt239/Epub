@@ -108,7 +108,7 @@
             android:id="@+id/textView"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginTop="28dp"
+            android:layout_marginTop="16dp"
             android:text="Đăng ký"
             android:textColor="#000000"
             android:textSize="26sp"
@@ -141,12 +141,11 @@
             android:id="@+id/linearLayoutemail"
             android:layout_width="366dp"
             android:layout_height="57dp"
-            android:layout_marginTop="40dp"
+            android:layout_marginTop="64dp"
             android:background="@drawable/bg_input"
             android:gravity="center"
             android:orientation="horizontal"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textView">
 
@@ -207,6 +206,15 @@
             app:layout_constraintHorizontal_bias="0.507"
             app:layout_constraintStart_toStartOf="@+id/btnRegister"
             app:layout_constraintTop_toBottomOf="@+id/btnRegister" />
+
+        <TextView
+            android:id="@+id/textView6"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="Bạn chưa có tài khoản của phần mềm đăng ký thông tin nhé"
+            app:layout_constraintStart_toStartOf="@+id/textView"
+            app:layout_constraintTop_toBottomOf="@+id/textView" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>
