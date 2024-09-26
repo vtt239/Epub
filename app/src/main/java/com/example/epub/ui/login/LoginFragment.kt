@@ -61,12 +61,18 @@ class LoginFragment : Fragment() {
         binding.btnShowPass.setOnClickListener {
             isPasswordVisible = !isPasswordVisible
             if (isPasswordVisible) {
-                binding.etPassword.inputType = InputType.TYPE_CLASS_TEXT or InputType.TYPE_TEXT_VARIATION_VISIBLE_PASSWORD
+                binding.etPassword.inputType =
+                    InputType.TYPE_CLASS_TEXT or InputType.TYPE_TEXT_VARIATION_VISIBLE_PASSWORD
             } else {
-                binding.etPassword.inputType = InputType.TYPE_CLASS_TEXT or InputType.TYPE_TEXT_VARIATION_PASSWORD
+                binding.etPassword.inputType =
+                    InputType.TYPE_CLASS_TEXT or InputType.TYPE_TEXT_VARIATION_PASSWORD
             }
             // Đặt con trỏ (cursor) về cuối của văn bản
             binding.etPassword.setSelection(binding.etPassword.text.length)
+        }
+
+        binding.forgotPass.setOnClickListener {
+            findNavController().navigate(R.id.navigation_forgotPassword)
         }
     }
 

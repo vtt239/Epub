@@ -16,10 +16,24 @@ data class LoginRequest(val phone: String, val password: String)
 
 data class LoginResponse(val message: String, val access_token: String, val status: Int)
 
+data class SentOtpRequest( val phone: String)
+
+data class SentOtpResponse( val status: Int, val message: String, val data: Boolean)
+
+data class VerifyOtpRequest( val phone: String, val otpCode: String)
+
+data class VerifyOtpResponse( val status: Int, val message: String, val data: String)
+
 interface AuthService {
-    @POST("/auth/register")
+    @POST("/elib/auth/register")
     fun registerUser(@Body request: RegisterRequest): Call<RegisterResponse>
 
-    @POST("/auth/login")
+    @POST("/elib/auth/login")
     fun loginUser(@Body request: LoginRequest): Call<LoginResponse>
+
+    @POST("/elib/auth/send-otp")
+    fun getOtp(@Body request: SentOtpRequest): Call<SentOtpResponse>
+
+    @POST("/elib/auth/verify")
+    fun verifyOtp(@Body request: VerifyOtpRequest): Call<VerifyOtpResponse>
 }

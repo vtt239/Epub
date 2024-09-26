@@ -18,6 +18,12 @@
         tools:layout="@layout/fragment_register" />
 
     <fragment
+        android:id="@+id/navigation_forgotPassword"
+        android:name="com.example.epub.ui.forgotPassword.ForgotPasswordFragment"
+        android:label="ForgotPassword"
+        tools:layout="@layout/fragment_forgot_password" />
+
+    <fragment
         android:id="@+id/navigation_home"
         android:name="com.example.epub.ui.home.HomeFragment"
         android:label="@string/title_home"
